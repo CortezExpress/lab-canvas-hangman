@@ -8,21 +8,43 @@ HangmanCanvas.prototype.createBoard = function () {
   // we have a clean one. We can also set up here the width we want to set to our lines.
   this.ctx.clearRect(0, 0, 1200, 800);
 
+  // begin the process of creating a path
+  this.ctx.beginPath();
+
+  //set up width for lines
+  this.ctx.lineWidth = 8;
+  
 };
 
 HangmanCanvas.prototype.drawLines = function () {
 // We know the secret word so we should put one line for each of the letters the user has to guess.
-  let x = 100
-  // this.ctx.moveTo(0, 5);
-    this.ctx.beginPath();
-  for (var i = 0; i<=this.secretWord.length; i++) {
-    this.ctx.moveTo(x, 100);
-    x+=30;
-    this.ctx.lineTo(x, 100);
-    this.ctx.stroke();
-    x+=10;
+  for (var i = 0; i < this.secretWord.length; i++) {
+      //set the width of the lines
+      this.ctx.linewidth = 3;
+
+      // code to draw up those lines underneath each letter
+      this.ctx.moveTo(230 + (i*50), 480);
+
+      // code to mark each line - still need to stroke() or fill
+
+      this.ctx.lineTo(250 + (i * 50), 480;
+
+      this.ctx.stroke();
+
   }
 };
+
+//   let x = 100
+//   // this.ctx.moveTo(0, 5);
+//     this.ctx.beginPath();
+//   for (var i = 0; i<=this.secretWord.length; i++) {
+//     this.ctx.moveTo(x, 100);
+//     x+=30;
+//     this.ctx.lineTo(x, 100);
+//     this.ctx.stroke();
+//     x+=10;
+//   }
+// };
 
 HangmanCanvas.prototype.writeCorrectLetter = function (index) {
 // Write the Guessed Letters and the Wrong Ones Every time a user clicks the keyboard, 
